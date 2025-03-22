@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Dice</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Añadimos Font Awesome para el icono de sonido -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Controles superiores -->
+    <div class="controles-superiores">
+        <button id="btnSonido" class="btn-sonido muted" title="Activar/Desactivar sonido" alt="Activar/Desactivar sonido">
+            <i class="fas fa-volume-mute"></i>
+        </button>
+        <button id="btnReiniciarJuego" class="btn-reiniciar" title="Reiniciar juego" alt="Reiniciar juego" style="display: none">
+            <i class="fas fa-redo-alt"></i>
+        </button>
+    </div>
+
+    <!-- Cabecera del juego (inicialmente oculta) -->
+    <div class="juego-header" style="display: none">
+        <div class="datos-juego">
+            <div class="datos-caja">
+                <div class="nivel-valor" id="nivel">1</div>
+                <div class="nivel-label">NIVEL</div>
+            </div>
+            <div class="datos-linea"></div>
+            <div class="datos-caja">
+                <div class="nivel-valor" id="record">1</div>
+                <div class="nivel-label">MÁXIMO</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del juego -->
+    <div id="juego">
+        <div class="celda" pos="1" data-sound="do" aria-label="Celda roja"></div>
+        <div class="celda" pos="2" data-sound="sol" aria-label="Celda verde"></div>
+        <div class="celda" pos="3" data-sound="si" aria-label="Celda azul"></div>
+        <div class="celda" pos="4" data-sound="fa" aria-label="Celda amarilla"></div>
+    </div>
+
+    <!-- Contededor donde se muestra el mensaje y el boton de inicio de juego-->
+    <div id="contenedor-controles">
+        <div id="mensaje-secuencia"></div>
+        <div class="contenedor-boton-inicio">
+            <button id="btnIniciar" title="Iniciar juego" alt="Iniciar juego">¡Jugar!</button>
+        </div>
+    </div>
+
+    <!-- Modal de Game Over -->
+    <div id="modalGameOver" class="modal">
+        <div class="modal-content">
+            <h2>¡Fin del juego!</h2>
+            <p>¡Has alcanzado el nivel <span class="nivel-final">0</span>!</p>
+            <div class="modal-datos-juego">
+                <div class="datos-caja">
+                    <div class="nivel-valor" id="nivel-modal">1</div>
+                    <div class="nivel-label">NIVEL</div>
+                </div>
+                <div class="datos-linea"></div>
+                <div class="datos-caja">
+                    <div class="nivel-valor" id="record-modal">1</div>
+                    <div class="nivel-label">MÁXIMO</div>
+                </div>
+            </div>
+            <button id="btnReiniciar" title= "Reiniciar juego">Intentar de nuevo</button>
+        </div>
+    </div>
+
+    <!-- Sonidos -->
+    <audio id="sonido-do" src="sonidos/do.mp3"></audio>
+    <audio id="sonido-sol" src="sonidos/sol.mp3"></audio>
+    <audio id="sonido-si" src="sonidos/si.mp3"></audio>
+    <audio id="sonido-fa" src="sonidos/fa.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html> 
